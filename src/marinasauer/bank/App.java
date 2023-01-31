@@ -10,5 +10,7 @@ public class App {
 
        account.deposit(1024.65);
 
+       System.out.println(account);
+
     }
 }

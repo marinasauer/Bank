@@ -61,4 +61,8 @@ public class Account {
         logger.out("DEPÓSITO: R$ " + value + " Saldo atual: R$ " + balance);
     }
 
+    public String toString(){
+        return "Cliente " + this.name + " Ag:" + this.ag + " Cc:" + this.cc + " Saldo final R$ " + balance;
+    }
+
 }
