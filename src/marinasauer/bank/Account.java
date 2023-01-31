@@ -4,7 +4,7 @@ public class Account {
     private String name;
     private String cc;
     private String ag;
-
+    private double balance;
     private static final int  MAX_LENGTH =12;
 
     public Account(String name,String ag, String cc){
@@ -23,7 +23,7 @@ public class Account {
         }else{
             this.name = name;
         }
-        System.out.print(this.name);
+        System.out.println(this.name);
 
     }
 
@@ -41,6 +41,11 @@ public class Account {
 
     public void setCc(String cc){
         this.cc=cc;
+    }
+
+    public void withDraw(double value){
+        balance=-value;
+        System.out.println("Valor do saque: " + value + ".\n" + "Valor total na conta: " + balance + ".");
     }
 
 }
