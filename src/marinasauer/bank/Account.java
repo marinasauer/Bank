@@ -1,11 +1,13 @@
 package marinasauer.bank;
 
 public class Account {
+    private static final int  MAX_LENGTH =12;
     private String name;
     private String cc;
     private String ag;
     private double balance;
-    private static final int  MAX_LENGTH =12;
+
+    Log logger = new Log();
 
     public Account(String name,String ag, String cc){
         setName(name);
@@ -43,9 +45,20 @@ public class Account {
         this.cc=cc;
     }
 
-    public void withDraw(double value){
-        balance=-value;
-        System.out.println("Valor do saque: " + value + ".\n" + "Valor total na conta: " + balance + ".");
+    public boolean withDraw(double value){
+        if(value>balance){
+            System.out.println("Você não possui saldo para este valor de saque.");
+            return false;
+        }else{
+            balance-= value;
+            logger.out("SAQUE: R$ " + value + " Saldo atual: R$ " + balance);
+            return true;
+        }
+    }
+
+    public  void deposit(double value){
+        balance+=value;
+        logger.out("DEPÓSITO: R$ " + value + " Saldo atual: R$ " + balance);
     }
 
 }
